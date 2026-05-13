@@ -25,3 +25,5 @@ Système de gestion des congés pour TechMada.
 - **Employé** : Dashboard, Soumission de demande, Liste des demandes, Solde en temps réel
 - **RH** : Validation/Refus des demandes, Mise à jour automatique du solde
 - **Admin** : Gestion des employés (CRUD), Gestion des départements, Dashboard absences du mois
+
+Test complets fini [Ok]
