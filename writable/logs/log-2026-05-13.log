@@ -416,3 +416,39 @@ in SYSTEMPATH/Database/BaseConnection.php on line 606.
  8 SYSTEMPATH/Boot.php(442): CodeIgniter\CLI\Console->run()
  9 SYSTEMPATH/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
 10 ROOTPATH/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+DEBUG - 2026-05-13 07:12:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 07:13:00 --> CSRF token verified.
+ERROR - 2026-05-13 07:13:00 --> Error connecting to the database: Error: Class "SQLite3" not found in /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/Database/SQLite3/Connection.php:111
+Stack trace:
+#0 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/Database/BaseConnection.php(555): CodeIgniter\Database\SQLite3\Connection->connect()
+#1 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/app/Controllers/Auth.php(23): CodeIgniter\BaseModel->first()
+#7 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/CodeIgniter.php(951): App\Controllers\Auth->attemptLogin()
+#8 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/johny-olivier/ITU/L2/s4/systeme d'information/codeigniter/projets/suivi_employe/system/rewrite.php(44): require_once('...')
+#14 {main}
+CRITICAL - 2026-05-13 07:13:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [SQLite3]: Class "SQLite3" not found
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 6 APPPATH/Controllers/Auth.php(23): CodeIgniter\BaseModel->first()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Auth->attemptLogin()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH/rewrite.php(44): require_once('/home/johny-olivier/ITU/L2/s4/systeme d\'information/codeigniter/projets/suivi_employe/public/index.php')
