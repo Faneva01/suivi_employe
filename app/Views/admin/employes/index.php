@@ -3,10 +3,10 @@
 <?= $this->section('content') ?>
 <div class="row">
     <div class="col-md-4">
-        <div class="auth-page geo-bg" style="min-height: auto; background: none; padding: 0;">
-            <div class="auth-right" style="background: var(--white); border-radius: 12px; border: 1.5px solid var(--border); padding: 2rem;">
-                <h3 class="auth-title">Ajouter un employé</h3>
-                <p class="auth-sub">Remplissez les informations ci-dessous.</p>
+        <div class="f-card">
+            <div class="f-card-body">
+                <h3 class="page-title" style="font-size:1.1rem;margin-bottom:.5rem;">Ajouter un employé</h3>
+                <p class="page-sub" style="margin-bottom:1.25rem;">Remplissez les informations ci-dessous.</p>
                 <form action="<?= base_url('admin/employes/store') ?>" method="post">
                     <?= csrf_field() ?>
                     <div class="f-group">
@@ -26,17 +26,17 @@
                         <input type="password" name="password" class="f-input" required>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-6 f-group">
                             <label class="f-label">Rôle</label>
-                            <select name="role" class="f-input" style="padding: 9px;" required>
+                            <select name="role" class="f-select" required>
                                 <option value="employe">Employé</option>
                                 <option value="rh">Responsable RH</option>
                                 <option value="admin">Administrateur</option>
                             </select>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-6 f-group">
                             <label class="f-label">Département</label>
-                            <select name="departement_id" class="f-input" style="padding: 9px;" required>
+                            <select name="departement_id" class="f-select" required>
                                 <?php foreach ($departements as $d): ?>
                                     <option value="<?= $d['id'] ?>"><?= $d['nom'] ?></option>
                                 <?php endforeach; ?>
@@ -47,7 +47,7 @@
                         <label class="f-label">Date d'embauche</label>
                         <input type="date" name="date_embauche" class="f-input" required value="<?= old('date_embauche', date('Y-m-d')) ?>">
                     </div>
-                    <button type="submit" class="btn-primary">Créer l'employé</button>
+                    <button type="submit" class="btn-forest w-100">Créer l'employé</button>
                 </form>
             </div>
         </div>
@@ -88,9 +88,9 @@
                                 </span>
                             </td>
                             <td>
-                                <div style="display:flex;gap:5px">
-                                    <a href="<?= base_url('admin/employes/edit/'.$e['id']) ?>" class="btn btn-sm btn-outline-primary" style="font-size: .75rem;"><i class="bi bi-pencil"></i></a>
-                                    <a href="<?= base_url('admin/employes/toggle/'.$e['id']) ?>" class="btn btn-sm btn-outline-<?= $e['actif'] == 1 ? 'warning' : 'success' ?>" style="font-size: .75rem;"><i class="bi bi-power"></i></a>
+                                <div class="btn-row">
+                                    <a href="<?= base_url('admin/employes/edit/'.$e['id']) ?>" class="btn-outline-primary"><i class="bi bi-pencil"></i> Modifier</a>
+                                    <a href="<?= base_url('admin/employes/toggle/'.$e['id']) ?>" class="btn-outline-<?= $e['actif'] == 1 ? 'warning' : 'success' ?>"><i class="bi bi-power"></i></a>
                                 </div>
                             </td>
                         </tr>

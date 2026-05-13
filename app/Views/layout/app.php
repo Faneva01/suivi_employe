@@ -127,8 +127,58 @@
         .flash { padding:12px 1.4rem; border-radius:8px; margin-bottom:1.5rem; font-size:.875rem; display:flex; align-items:center; gap:10px; }
         .flash-success { background:var(--success-bg); color:var(--success); border:1px solid var(--success-br); }
         .flash-error { background:var(--danger-bg); color:var(--danger); border:1px solid var(--danger-br); }
+        /* Breadcrumb */
+        .f-breadcrumb { display:flex; align-items:center; gap:6px; font-size:.8rem; margin-bottom:1rem; }
+        .f-breadcrumb a { color:var(--forest); text-decoration:none; }
+        .f-breadcrumb a:hover { text-decoration:underline; }
+        .f-breadcrumb .sep { color:var(--muted); }
+        .f-breadcrumb .current { color:var(--muted); font-weight:500; }
+
+        /* Outline buttons */
+        .btn-outline-danger { display:inline-flex; align-items:center; gap:5px; background:transparent; color:var(--danger); border:1.5px solid var(--danger); border-radius:8px; padding:6px 14px; font-size:.8rem; font-weight:500; cursor:pointer; text-decoration:none; transition:all .15s; }
+        .btn-outline-danger:hover { background:var(--danger-bg); color:var(--danger); }
+        .btn-outline-warning { display:inline-flex; align-items:center; gap:5px; background:transparent; color:var(--warn); border:1.5px solid var(--warn-br); border-radius:8px; padding:6px 14px; font-size:.8rem; font-weight:500; cursor:pointer; text-decoration:none; transition:all .15s; }
+        .btn-outline-warning:hover { background:var(--warn-bg); color:var(--warn); }
+        .btn-outline-success { display:inline-flex; align-items:center; gap:5px; background:transparent; color:var(--success); border:1.5px solid var(--success-br); border-radius:8px; padding:6px 14px; font-size:.8rem; font-weight:500; cursor:pointer; text-decoration:none; transition:all .15s; }
+        .btn-outline-success:hover { background:var(--success-bg); color:var(--success); }
+        .btn-outline-primary { display:inline-flex; align-items:center; gap:5px; background:transparent; color:var(--info); border:1.5px solid var(--info-br); border-radius:8px; padding:6px 14px; font-size:.8rem; font-weight:500; cursor:pointer; text-decoration:none; transition:all .15s; }
+        .btn-outline-primary:hover { background:var(--info-bg); color:var(--info); }
+
+        /* Solid buttons */
+        .btn-danger { display:inline-flex; align-items:center; gap:5px; background:var(--danger); color:var(--white); border:none; border-radius:8px; padding:8px 16px; font-size:.85rem; font-weight:500; cursor:pointer; text-decoration:none; transition:background .15s; }
+        .btn-danger:hover { opacity:.85; }
+        .btn-success { display:inline-flex; align-items:center; gap:5px; background:var(--success); color:var(--white); border:none; border-radius:8px; padding:8px 16px; font-size:.85rem; font-weight:500; cursor:pointer; text-decoration:none; transition:background .15s; }
+        .btn-success:hover { opacity:.85; }
+        .btn-secondary { display:inline-flex; align-items:center; gap:5px; background:#e9ecef; color:var(--ink); border:1.5px solid var(--border); border-radius:8px; padding:8px 16px; font-size:.85rem; font-weight:500; cursor:pointer; text-decoration:none; transition:all .15s; }
+        .btn-secondary:hover { background:var(--cream); }
+
+        /* Buttons row */
+        .btn-row { display:flex; gap:8px; align-items:center; }
+
+        /* Card consistent with data-card but no table */
+        .f-card { background:var(--white); border:1.5px solid var(--border); border-radius:12px; overflow:hidden; }
+        .f-card-body { padding:1.5rem; }
+
+        /* Modal custom */
+        .f-modal-overlay { display:none; position:fixed; inset:0; background:rgba(28,43,30,.5); z-index:1050; align-items:center; justify-content:center; }
+        .f-modal-overlay.show { display:flex; }
+        .f-modal { background:var(--white); border-radius:12px; width:100%; max-width:500px; margin:1rem; box-shadow:0 10px 30px rgba(0,0,0,.1); }
+        .f-modal-head { padding:1.2rem 1.5rem; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+        .f-modal-head h5 { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; margin:0; }
+        .f-modal-close { width:28px; height:28px; border:none; background:var(--cream); border-radius:6px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:1rem; }
+        .f-modal-close:hover { background:var(--mint); color:var(--ink); }
+        .f-modal-body { padding:1.5rem; }
+        .f-modal-foot { padding:1rem 1.5rem; border-top:1px solid var(--border); display:flex; justify-content:flex-end; gap:8px; }
+
+        /* Page title */
+        .page-title { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; margin:0 0 .25rem; }
+        .page-sub { font-size:.85rem; color:var(--muted); margin:0 0 1.5rem; }
+
+        /* Text helper */
+        .td-muted { color:var(--muted); }
+        .type-badge { font-size:.72rem; font-weight:500; background:var(--mint); color:var(--forest); padding:3px 10px; border-radius:5px; }
     </style>
-</head>
+  </head>
 <body>
     <div class="app-wrap">
         <aside class="sidebar">

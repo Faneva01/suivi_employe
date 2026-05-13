@@ -33,11 +33,11 @@
                         <td class="td-mono"><?= $d['nb_jours'] ?> j</td>
                         <td><small><?= $d['motif'] ?></small></td>
                         <td>
-                            <div style="display:flex;gap:5px">
-                                <button type="button" class="btn btn-sm btn-success" style="font-size: .75rem;" data-bs-toggle="modal" data-bs-target="#modalTraiter<?= $d['id'] ?>" onclick="setAction('approuvee', <?= $d['id'] ?>)">
+                            <div class="btn-row">
+                                <button type="button" class="btn-success" onclick="document.getElementById('modalTraiter<?= $d['id'] ?>').classList.add('show');setAction('approuvee', <?= $d['id'] ?>)">
                                     Approuver
                                 </button>
-                                <button type="button" class="btn btn-sm btn-danger" style="font-size: .75rem;" data-bs-toggle="modal" data-bs-target="#modalTraiter<?= $d['id'] ?>" onclick="setAction('refusee', <?= $d['id'] ?>)">
+                                <button type="button" class="btn-danger" onclick="document.getElementById('modalTraiter<?= $d['id'] ?>').classList.add('show');setAction('refusee', <?= $d['id'] ?>)">
                                     Refuser
                                 </button>
                             </div>
@@ -45,30 +45,28 @@
                     </tr>
 
                     <!-- Modal Traiter -->
-                    <div class="modal fade" id="modalTraiter<?= $d['id'] ?>" tabindex="-1">
-                        <div class="modal-dialog">
-                            <div class="modal-content" style="border-radius: 12px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                                <div class="modal-header" style="border-bottom: 1px solid var(--border);">
-                                    <h5 class="modal-title" style="font-family: 'Playfair Display', serif; font-weight: 700;">Traiter la demande</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-                                <form action="<?= base_url('rh/demandes/traiter') ?>" method="post">
-                                    <?= csrf_field() ?>
-                                    <input type="hidden" name="id" value="<?= $d['id'] ?>">
-                                    <input type="hidden" name="action" id="action<?= $d['id'] ?>">
-                                    <div class="modal-body">
-                                        <p>Voulez-vous vraiment <span id="actionLabel<?= $d['id'] ?>" style="font-weight: 700;"></span> cette demande de <strong><?= $d['prenom'] ?> <?= $d['nom'] ?></strong> ?</p>
-                                        <div class="mb-3">
-                                            <label class="form-label" style="font-size: .8rem; font-weight: 500;">Commentaire pour l'employé (optionnel)</label>
-                                            <textarea name="commentaire_rh" class="form-control" style="border-radius: 8px; border: 1.5px solid var(--border);" rows="3" placeholder="Ex: Bonnes vacances !"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer" style="border-top: none; padding-top: 0;">
-                                        <button type="button" class="btn btn-secondary" style="border-radius: 8px;" data-bs-dismiss="modal">Annuler</button>
-                                        <button type="submit" class="btn-forest">Confirmer</button>
-                                    </div>
-                                </form>
+                    <div class="f-modal-overlay" id="modalTraiter<?= $d['id'] ?>">
+                        <div class="f-modal">
+                            <div class="f-modal-head">
+                                <h5>Traiter la demande</h5>
+                                <button type="button" class="f-modal-close" onclick="document.getElementById('modalTraiter<?= $d['id'] ?>').classList.remove('show')">&times;</button>
                             </div>
+                            <form action="<?= base_url('rh/demandes/traiter') ?>" method="post">
+                                <?= csrf_field() ?>
+                                <input type="hidden" name="id" value="<?= $d['id'] ?>">
+                                <input type="hidden" name="action" id="action<?= $d['id'] ?>">
+                                <div class="f-modal-body">
+                                    <p>Voulez-vous vraiment <span id="actionLabel<?= $d['id'] ?>" style="font-weight: 700;"></span> cette demande de <strong><?= $d['prenom'] ?> <?= $d['nom'] ?></strong> ?</p>
+                                    <div class="f-group">
+                                        <label class="f-label">Commentaire pour l'employé (optionnel)</label>
+                                        <textarea name="commentaire_rh" class="f-input" rows="3" placeholder="Ex: Bonnes vacances !"></textarea>
+                                    </div>
+                                </div>
+                                <div class="f-modal-foot">
+                                    <button type="button" class="btn-secondary" onclick="document.getElementById('modalTraiter<?= $d['id'] ?>').classList.remove('show')">Annuler</button>
+                                    <button type="submit" class="btn-forest">Confirmer</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 <?php endforeach; ?>
