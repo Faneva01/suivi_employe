@@ -40,5 +40,6 @@ $routes->group('admin', ['filter' => 'auth:admin'], function($routes) {
     
     // CRUD Departements
     $routes->get('departements', 'Admin::listDepartements');
+    $routes->post('departements/store', 'Admin::storeDepartement');
     // etc.
 });
