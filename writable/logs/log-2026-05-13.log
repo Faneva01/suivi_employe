@@ -117,3 +117,52 @@ in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
 13 SYSTEMPATH/Boot.php(442): CodeIgniter\CLI\Console->run()
 14 SYSTEMPATH/Boot.php(166): CodeIgniter\Boot::runCommand()
 15 ROOTPATH/spark(87): CodeIgniter\Boot::bootSpark()
+ERROR - 2026-05-13 06:48:57 --> Duplicate entry 'admin@techmada.mg' for key 'email'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1841): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(2230): CodeIgniter\Database\BaseBuilder->batchExecute()
+ 6 APPPATH/Database/Seeds/MainSeeder.php(91): CodeIgniter\Database\BaseBuilder->insertBatch()
+ 7 SYSTEMPATH/Database/Seeder.php(155): App\Database\Seeds\MainSeeder->run()
+ 8 SYSTEMPATH/Commands/Database/Seed.php(79): CodeIgniter\Database\Seeder->call()
+ 9 SYSTEMPATH/CLI/Commands.php(74): CodeIgniter\Commands\Database\Seed->run()
+10 SYSTEMPATH/CLI/Console.php(47): CodeIgniter\CLI\Commands->run()
+11 SYSTEMPATH/Boot.php(442): CodeIgniter\CLI\Console->run()
+12 SYSTEMPATH/Boot.php(166): CodeIgniter\Boot::runCommand()
+13 ROOTPATH/spark(87): CodeIgniter\Boot::bootSpark()
+DEBUG - 2026-05-13 06:49:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 06:50:30 --> CSRF token verified.
+DEBUG - 2026-05-13 06:50:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:50:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:50:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:50:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:50:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:50:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:50:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 06:51:07 --> CSRF token verified.
+DEBUG - 2026-05-13 06:51:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:51:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:51:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 06:51:40 --> CSRF token verified.
+DEBUG - 2026-05-13 06:51:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:51:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:51:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:51:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 06:52:06 --> CSRF token verified.
+DEBUG - 2026-05-13 06:52:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:52:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:52:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 06:52:19 --> CSRF token verified.
+DEBUG - 2026-05-13 06:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:52:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:52:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:52:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:52:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 06:52:30 --> CSRF token verified.
+DEBUG - 2026-05-13 06:52:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:52:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:52:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 06:52:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

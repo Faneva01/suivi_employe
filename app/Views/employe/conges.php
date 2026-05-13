@@ -1,123 +1,82 @@
 <?= $this->extend('layout/app') ?>
 
 <?= $this->section('content') ?>
-<div class="row mb-4">
-    <div class="col-md-8">
-        <h3>Mes Demandes de Congés</h3>
-    </div>
-    <div class="col-md-4 text-end">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDemande">
-            <i class="fas fa-plus me-2"></i> Nouvelle Demande
-        </button>
-    </div>
-</div>
-
 <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body p-0">
-                <table class="table table-hover mb-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Type</th>
-                            <th>Dates</th>
-                            <th>Jours</th>
-                            <th>Motif</th>
-                            <th>Statut</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if (empty($conges)): ?>
-                            <tr><td colspan="6" class="text-center">Aucune demande effectuée.</td></tr>
-                        <?php else: ?>
-                            <?php foreach ($conges as $c): ?>
-                                <tr>
-                                    <td><?= $c['type_libelle'] ?></td>
-                                    <td>Du <?= $c['date_debut'] ?> au <?= $c['date_fin'] ?></td>
-                                    <td><?= $c['nb_jours'] ?></td>
-                                    <td><?= $c['motif'] ?></td>
-                                    <td>
-                                        <?php if ($c['statut'] === 'en_attente'): ?>
-                                            <span class="badge bg-warning">En attente</span>
-                                        <?php elseif ($c['statut'] === 'approuvee'): ?>
-                                            <span class="badge bg-success">Approuvée</span>
-                                        <?php elseif ($c['statut'] === 'refusee'): ?>
-                                            <span class="badge bg-danger">Refusée</span>
-                                        <?php else: ?>
-                                            <span class="badge bg-secondary"><?= $c['statut'] ?></span>
-                                        <?php endif; ?>
-                                        
-                                        <?php if ($c['commentaire_rh']): ?>
-                                            <i class="fas fa-info-circle text-info ms-1" data-bs-toggle="tooltip" title="<?= $c['commentaire_rh'] ?>"></i>
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>
-                                        <?php if ($c['statut'] === 'en_attente'): ?>
-                                            <a href="<?= base_url('employe/conges/annuler/'.$c['id']) ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Annuler cette demande ?')">
-                                                Annuler
-                                            </a>
-                                        <?php endif; ?>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Nouvelle Demande -->
-<div class="modal fade" id="modalDemande" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Soumettre une demande</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
+    <div class="col-md-4">
+        <div class="data-card p-4">
+            <h3 class="mb-4"><i class="bi bi-plus-circle me-2"></i>Nouvelle demande</h3>
             <form action="<?= base_url('employe/conges/soumettre') ?>" method="post">
                 <?= csrf_field() ?>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Type de congé</label>
-                        <select name="type_conge_id" class="form-select" required>
-                            <?php foreach ($soldes as $s): ?>
-                                <option value="<?= $s['type_conge_id'] ?>">
-                                    <?= $s['libelle'] ?> (Restant : <?= $s['jours_attribues'] - $s['jours_pris'] ?> j)
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Date de début</label>
-                            <input type="date" name="date_debut" class="form-control" required min="<?= date('Y-m-d') ?>">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Date de fin</label>
-                            <input type="date" name="date_fin" class="form-control" required min="<?= date('Y-m-d') ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Motif</label>
-                        <textarea name="motif" class="form-control" rows="3"></textarea>
-                    </div>
+                <div class="mb-3">
+                    <label class="form-label" style="font-size: .8rem; font-weight: 500;">Type de congé</label>
+                    <select name="type_conge_id" class="form-select" style="border-radius: 8px; border: 1.5px solid var(--border);" required>
+                        <?php foreach ($soldes as $s): ?>
+                            <option value="<?= $s['type_conge_id'] ?>">
+                                <?= $s['libelle'] ?> (<?= $s['jours_attribues'] - $s['jours_pris'] ?> j dispo)
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-primary">Soumettre</button>
+                <div class="mb-3">
+                    <label class="form-label" style="font-size: .8rem; font-weight: 500;">Date de début</label>
+                    <input type="date" name="date_debut" class="form-control" style="border-radius: 8px; border: 1.5px solid var(--border);" required min="<?= date('Y-m-d') ?>">
                 </div>
+                <div class="mb-3">
+                    <label class="form-label" style="font-size: .8rem; font-weight: 500;">Date de fin</label>
+                    <input type="date" name="date_fin" class="form-control" style="border-radius: 8px; border: 1.5px solid var(--border);" required min="<?= date('Y-m-d') ?>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="font-size: .8rem; font-weight: 500;">Motif (optionnel)</label>
+                    <textarea name="motif" class="form-control" style="border-radius: 8px; border: 1.5px solid var(--border);" rows="3" placeholder="Ex: Raisons familiales..."></textarea>
+                </div>
+                <button type="submit" class="btn-forest w-100">Soumettre la demande</button>
             </form>
         </div>
     </div>
-</div>
 
-<script>
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-</script>
+    <div class="col-md-8">
+        <div class="data-card">
+            <div class="data-card-head">
+                <h3>Mes demandes</h3>
+            </div>
+            <table class="tbl">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Période</th>
+                        <th>Durée</th>
+                        <th>Statut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (empty($conges)): ?>
+                        <tr><td colspan="5" class="text-center">Aucune demande effectuée.</td></tr>
+                    <?php else: ?>
+                        <?php foreach ($conges as $c): ?>
+                            <tr>
+                                <td><span class="type-badge"><?= $c['type_libelle'] ?></span></td>
+                                <td class="td-muted">Du <?= date('d/m/Y', strtotime($c['date_debut'])) ?> au <?= date('d/m/Y', strtotime($c['date_fin'])) ?></td>
+                                <td class="td-mono"><?= $c['nb_jours'] ?> j</td>
+                                <td>
+                                    <span class="statut s-<?= $c['statut'] ?>"><?= $c['statut'] ?></span>
+                                    <?php if ($c['commentaire_rh']): ?>
+                                        <i class="bi bi-info-circle ms-1" title="<?= $c['commentaire_rh'] ?>"></i>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php if ($c['statut'] === 'en_attente'): ?>
+                                        <a href="<?= base_url('employe/conges/annuler/'.$c['id']) ?>" class="btn btn-sm btn-outline-danger" style="font-size: .75rem;" onclick="return confirm('Annuler cette demande ?')">
+                                            <i class="bi bi-x"></i> Annuler
+                                        </a>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <?= $this->endSection() ?>
