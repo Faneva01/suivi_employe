@@ -78,9 +78,13 @@ class Employe extends BaseController
             return redirect()->back()->withInput()->with('error', 'La date de début doit être antérieure à la date de fin.');
         }
 
-        // Calcul nb jours (calendaires pour simplifier comme dit dans le sujet)
-        $diff = strtotime($dateFin) - strtotime($dateDebut);
-        $nbJours = round($diff / (60 * 60 * 24)) + 1;
+        // Calcul nb jours ouvrables
+        helper('date');
+        $nbJours = calculate_business_days($dateDebut, $dateFin);
+
+        if ($nbJours <= 0) {
+            return redirect()->back()->withInput()->with('error', 'La demande doit comporter au moins 1 jour ouvrable.');
+        }
 
         $employeId = session()->get('id');
         $currentYear = date('Y');
