@@ -23,7 +23,7 @@ class Admin extends BaseController
                                   ->join('types_conge', 'types_conge.id = conges.type_conge_id')
                                   ->where('conges.statut', 'approuvee')
                                   ->groupStart()
-                                    ->where("MONTH(date_debut) = $currentMonth OR MONTH(date_fin) = $currentMonth")
+                                    ->where("strftime('%m', date_debut) = '$currentMonth' OR strftime('%m', date_fin) = '$currentMonth'")
                                   ->groupEnd()
                                   ->findAll();
 
@@ -35,6 +35,38 @@ class Admin extends BaseController
         ];
 
         return view('admin/dashboard', $data);
+    }
+
+    public function listHistorique()
+    {
+        $congeModel = new CongeModel();
+        $depModel = new DepartementModel();
+        
+        // Filtres
+        $statut = $this->request->getGet('statut');
+        $departementId = $this->request->getGet('departement_id');
+        
+        $query = $congeModel->select('conges.*, employes.nom, employes.prenom, employes.departement_id, types_conge.libelle')
+                            ->join('employes', 'employes.id = conges.employe_id')
+                            ->join('types_conge', 'types_conge.id = conges.type_conge_id');
+
+        if (!empty($statut) && $statut !== 'all') {
+            $query->where('conges.statut', $statut);
+        }
+
+        if (!empty($departementId)) {
+            $query->where('employes.departement_id', $departementId);
+        }
+
+        $data = [
+            'title'         => 'Historique des demandes',
+            'demandes'      => $query->orderBy('conges.created_at', 'DESC')->findAll(),
+            'departements'  => $depModel->findAll(),
+            'filtreStatut'  => $statut,
+            'filtreDep'     => $departementId
+        ];
+
+        return view('admin/historique', $data);
     }
 
     public function listEmployes()

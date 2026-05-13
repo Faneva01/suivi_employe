@@ -38,6 +38,7 @@
                     <li><a href="<?= base_url('admin/departements') ?>" class="<?= url_is('admin/departements*') ? 'active' : '' ?>"><i class="bi bi-building"></i> Départements</a></li>
                     <li><a href="<?= base_url('admin/types-conge') ?>" class="<?= url_is('admin/types-conge*') ? 'active' : '' ?>"><i class="bi bi-tags"></i> Types de congé</a></li>
                     <li><a href="<?= base_url('admin/soldes') ?>" class="<?= url_is('admin/soldes*') ? 'active' : '' ?>"><i class="bi bi-pie-chart"></i> Soldes</a></li>
+                    <li><a href="<?= base_url('admin/historique') ?>" class="<?= url_is('admin/historique*') ? 'active' : '' ?>"><i class="bi bi-clock-history"></i> Historique</a></li>
                 <?php endif; ?>
             </ul>
 

@@ -129,8 +129,25 @@ class Employe extends BaseController
             return redirect()->back()->with('error', 'Demande introuvable.');
         }
 
-        if ($conge['statut'] !== 'en_attente') {
-            return redirect()->back()->with('error', 'Seules les demandes en attente peuvent être annulées.');
+        if (!in_array($conge['statut'], ['en_attente', 'approuvee'])) {
+            return redirect()->back()->with('error', 'Cette demande ne peut plus être annulée.');
+        }
+
+        // Si c'était approuvé, recréditer le solde
+        if ($conge['statut'] === 'approuvee') {
+            $soldeModel = new SoldeModel();
+            $annee = date('Y', strtotime($conge['date_debut']));
+            $solde = $soldeModel->where([
+                'employe_id'    => $conge['employe_id'],
+                'type_conge_id' => $conge['type_conge_id'],
+                'annee'         => $annee
+            ])->first();
+
+            if ($solde) {
+                $soldeModel->update($solde['id'], [
+                    'jours_pris' => $solde['jours_pris'] - $conge['nb_jours']
+                ]);
+            }
         }
 
         $congeModel->update($id, ['statut' => 'annulee']);

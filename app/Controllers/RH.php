@@ -60,26 +60,33 @@ class RH extends BaseController
             return redirect()->back()->with('error', 'Demande introuvable.');
         }
 
-        if ($action === 'approuvee') {
-            $employeId = $conge['employe_id'];
-            $typeCongeId = $conge['type_conge_id'];
-            $nbJours = $conge['nb_jours'];
-            $annee = date('Y', strtotime($conge['date_debut']));
+        $oldStatus = $conge['statut'];
+        $employeId = $conge['employe_id'];
+        $typeCongeId = $conge['type_conge_id'];
+        $nbJours = $conge['nb_jours'];
+        $annee = date('Y', strtotime($conge['date_debut']));
 
-            $solde = $soldeModel->where([
-                'employe_id'    => $employeId,
-                'type_conge_id' => $typeCongeId,
-                'annee'         => $annee
-            ])->first();
+        // Trouver le solde
+        $solde = $soldeModel->where([
+            'employe_id'    => $employeId,
+            'type_conge_id' => $typeCongeId,
+            'annee'         => $annee
+        ])->first();
 
-            if (!$solde || ($solde['jours_pris'] + $nbJours > $solde['jours_attribues'])) {
+        if (!$solde) {
+            return redirect()->back()->with('error', 'Solde introuvable pour cet employé.');
+        }
+
+        // Cas 1: Passage de (non-approuvée) à (approuvée) -> Débiter
+        if ($oldStatus !== 'approuvee' && $action === 'approuvee') {
+            if ($solde['jours_pris'] + $nbJours > $solde['jours_attribues']) {
                 return redirect()->back()->with('error', 'Solde insuffisant pour approuver cette demande.');
             }
-
-            // Mettre à jour le solde
-            $soldeModel->update($solde['id'], [
-                'jours_pris' => $solde['jours_pris'] + $nbJours
-            ]);
+            $soldeModel->update($solde['id'], ['jours_pris' => $solde['jours_pris'] + $nbJours]);
+        }
+        // Cas 2: Passage de (approuvée) à (autre chose: refusée, annulée) -> Créditer
+        elseif ($oldStatus === 'approuvee' && $action !== 'approuvee') {
+            $soldeModel->update($solde['id'], ['jours_pris' => $solde['jours_pris'] - $nbJours]);
         }
 
         $congeModel->update($id, [

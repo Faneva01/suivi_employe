@@ -54,4 +54,7 @@ $routes->group('admin', ['filter' => 'auth:admin'], function($routes) {
     // Gestion des Soldes
     $routes->get('soldes', 'Admin::listSoldes');
     $routes->post('soldes/update', 'Admin::updateSolde');
+
+    // Historique
+    $routes->get('historique', 'Admin::listHistorique');
 });
