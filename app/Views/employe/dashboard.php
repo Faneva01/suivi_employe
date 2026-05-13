@@ -33,7 +33,7 @@
             <?php else: ?>
                 <?php foreach ($lastConges as $c): ?>
                     <tr>
-                        <td><span class="type-badge"><?= $c['statut'] ?></span></td>
+                        <td><span class="type-badge"><?= $c['type_libelle'] ?? 'N/A' ?></span></td>
                         <td class="td-muted">Du <?= date('d/m/Y', strtotime($c['date_debut'])) ?> au <?= date('d/m/Y', strtotime($c['date_fin'])) ?></td>
                         <td class="td-mono"><?= $c['nb_jours'] ?> j</td>
                         <td>

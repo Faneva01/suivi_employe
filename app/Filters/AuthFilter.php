@@ -18,18 +18,19 @@ class AuthFilter implements FilterInterface
             $requiredRole = $arguments[0];
             $userRole = session()->get('role');
 
-            if ($userRole !== $requiredRole) {
-                // If it's an admin trying to access RH/Employe, maybe allow?
-                // But for the TP, let's stick to strict roles or hierarchy.
-                // Usually Admin > RH > Employe.
-                
-                if ($requiredRole === 'employe') {
-                    // Everyone can access employe space? No, usually specific.
-                }
+            // Admin can access any page (hierarchy: admin > rh > employe)
+            if ($userRole === 'admin') {
+                return; // Allow access
+            }
 
-                if ($userRole !== 'admin' && $userRole !== $requiredRole) {
-                     return redirect()->to('/login')->with('error', 'Accès non autorisé.');
-                }
+            // RH can access RH and employe routes
+            if ($userRole === 'rh' && ($requiredRole === 'rh' || $requiredRole === 'employe')) {
+                return; // Allow access
+            }
+
+            // Strict check for exact role match
+            if ($userRole !== $requiredRole) {
+                return redirect()->to('/login')->with('error', 'Accès non autorisé.');
             }
         }
     }

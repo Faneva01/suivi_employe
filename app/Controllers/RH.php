@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\CongeModel;
 use App\Models\SoldeModel;
+use App\Models\EmployeModel;
+use App\Models\DepartementModel;
 
 class RH extends BaseController
 {
@@ -15,14 +17,30 @@ class RH extends BaseController
     public function demandes()
     {
         $congeModel = new CongeModel();
+        $depModel = new DepartementModel();
         
+        // Filtres
+        $statut = $this->request->getGet('statut') ?? 'en_attente';
+        $departementId = $this->request->getGet('departement_id');
+        
+        $query = $congeModel->select('conges.*, employes.nom, employes.prenom, employes.departement_id, types_conge.libelle')
+                            ->join('employes', 'employes.id = conges.employe_id')
+                            ->join('types_conge', 'types_conge.id = conges.type_conge_id');
+
+        if ($statut !== 'all') {
+            $query->where('conges.statut', $statut);
+        }
+
+        if (!empty($departementId)) {
+            $query->where('employes.departement_id', $departementId);
+        }
+
         $data = [
-            'title'    => 'Demandes à traiter',
-            'demandes' => $congeModel->select('conges.*, employes.nom, employes.prenom, types_conge.libelle')
-                                    ->join('employes', 'employes.id = conges.employe_id')
-                                    ->join('types_conge', 'types_conge.id = conges.type_conge_id')
-                                    ->where('conges.statut', 'en_attente')
-                                    ->findAll()
+            'title'         => 'Demandes à traiter',
+            'demandes'      => $query->orderBy('conges.created_at', 'DESC')->findAll(),
+            'departements'  => $depModel->findAll(),
+            'filtreStatut'  => $statut,
+            'filtreDep'     => $departementId
         ];
 
         return view('rh/demandes', $data);
@@ -51,7 +69,7 @@ class RH extends BaseController
             $solde = $soldeModel->where([
                 'employe_id'    => $employeId,
                 'type_conge_id' => $typeCongeId,
-                'annee'           => $annee
+                'annee'         => $annee
             ])->first();
 
             if (!$solde || ($solde['jours_pris'] + $nbJours > $solde['jours_attribues'])) {
@@ -71,5 +89,32 @@ class RH extends BaseController
         ]);
 
         return redirect()->back()->with('success', 'Demande traitée avec succès.');
+    }
+
+    // Voir les soldes des employés
+    public function soldes()
+    {
+        $soldeModel = new SoldeModel();
+        $employeModel = new EmployeModel();
+        $depModel = new DepartementModel();
+
+        $departementId = $this->request->getGet('departement_id');
+
+        $query = $soldeModel->select('soldes.*, employes.nom as emp_nom, employes.prenom as emp_prenom, employes.departement_id, types_conge.libelle as type_libelle')
+                            ->join('employes', 'employes.id = soldes.employe_id')
+                            ->join('types_conge', 'types_conge.id = soldes.type_conge_id');
+
+        if (!empty($departementId)) {
+            $query->where('employes.departement_id', $departementId);
+        }
+
+        $data = [
+            'title'        => 'Soldes des employés',
+            'soldes'       => $query->orderBy('employes.nom', 'ASC')->findAll(),
+            'departements' => $depModel->findAll(),
+            'filtreDep'    => $departementId
+        ];
+
+        return view('rh/soldes', $data);
     }
 }

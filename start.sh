@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "🚀 Lancement du serveur TechMada RH via XAMPP PHP..."
+echo "Lancement du serveur..."
 /opt/lampp/bin/php spark serve

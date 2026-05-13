@@ -40,11 +40,13 @@ class Admin extends BaseController
     public function listEmployes()
     {
         $model = new EmployeModel();
+        $depModel = new DepartementModel();
         $data = [
-            'title'    => 'Gestion des Employés',
-            'employes' => $model->select('employes.*, departements.nom as dep_nom')
-                                ->join('departements', 'departements.id = employes.departement_id', 'left')
-                                ->findAll()
+            'title'        => 'Gestion des Employés',
+            'employes'     => $model->select('employes.*, departements.nom as dep_nom')
+                                    ->join('departements', 'departements.id = employes.departement_id', 'left')
+                                    ->findAll(),
+            'departements' => $depModel->findAll()  // Needed by the inline form in index.php
         ];
         return view('admin/employes/index', $data);
     }
@@ -159,5 +161,97 @@ class Admin extends BaseController
             return redirect()->back()->with('error', 'Erreur lors de la création.');
         }
         return redirect()->back()->with('success', 'Département ajouté.');
+    }
+
+    // CRUD Types de Congé
+    public function listTypesConge()
+    {
+        $model = new TypeCongeModel();
+        $data = [
+            'title' => 'Gestion des Types de Congé',
+            'types' => $model->findAll()
+        ];
+        return view('admin/types_conge/index', $data);
+    }
+
+    public function storeTypeConge()
+    {
+        $model = new TypeCongeModel();
+        if (!$model->insert($this->request->getPost())) {
+            return redirect()->back()->with('error', 'Erreur lors de la création.');
+        }
+        return redirect()->back()->with('success', 'Type de congé ajouté.');
+    }
+
+    public function editTypeConge($id)
+    {
+        $model = new TypeCongeModel();
+        $type = $model->find($id);
+        if (!$type) {
+            return redirect()->to('/admin/types-conge')->with('error', 'Type de congé introuvable.');
+        }
+        $data = [
+            'title' => 'Modifier un type de congé',
+            'type'  => $type
+        ];
+        return view('admin/types_conge/edit', $data);
+    }
+
+    public function updateTypeConge($id)
+    {
+        $model = new TypeCongeModel();
+        if (!$model->update($id, $this->request->getPost())) {
+            return redirect()->back()->withInput()->with('errors', $model->errors());
+        }
+        return redirect()->to('/admin/types-conge')->with('success', 'Type de congé mis à jour.');
+    }
+
+    public function deleteTypeConge($id)
+    {
+        $model = new TypeCongeModel();
+        $model->delete($id);
+        return redirect()->back()->with('success', 'Type de congé supprimé.');
+    }
+
+    // Gestion des soldes
+    public function listSoldes()
+    {
+        $soldeModel = new SoldeModel();
+        $employeModel = new EmployeModel();
+        $typeModel = new TypeCongeModel();
+
+        $soldes = $soldeModel->select('soldes.*, employes.nom as emp_nom, employes.prenom as emp_prenom, types_conge.libelle as type_libelle')
+                             ->join('employes', 'employes.id = soldes.employe_id')
+                             ->join('types_conge', 'types_conge.id = soldes.type_conge_id')
+                             ->orderBy('employes.nom', 'ASC')
+                             ->findAll();
+
+        $data = [
+            'title'         => 'Gestion des Soldes',
+            'soldes'        => $soldes,
+            'employes'      => $employeModel->findAll(),
+            'typesConge'    => $typeModel->findAll(),
+            'currentYear'   => date('Y')
+        ];
+        return view('admin/soldes/index', $data);
+    }
+
+    public function updateSolde()
+    {
+        $soldeModel = new SoldeModel();
+        $id = $this->request->getPost('id');
+        $joursAttribues = $this->request->getPost('jours_attribues');
+
+        $solde = $soldeModel->find($id);
+        if (!$solde) {
+            return redirect()->back()->with('error', 'Solde introuvable.');
+        }
+
+        if ($joursAttribues < $solde['jours_pris']) {
+            return redirect()->back()->with('error', 'Les jours attribués ne peuvent pas être inférieurs aux jours déjà pris.');
+        }
+
+        $soldeModel->update($id, ['jours_attribues' => $joursAttribues]);
+        return redirect()->back()->with('success', 'Solde mis à jour avec succès.');
     }
 }

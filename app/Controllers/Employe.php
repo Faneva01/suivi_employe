@@ -18,7 +18,12 @@ class Employe extends BaseController
 
         $data = [
             'title'      => 'Tableau de bord - Employé',
-            'lastConges' => $congeModel->where('employe_id', $employeId)->orderBy('created_at', 'DESC')->limit(5)->findAll(),
+            'lastConges' => $congeModel->select('conges.*, types_conge.libelle as type_libelle')
+                                      ->join('types_conge', 'types_conge.id = conges.type_conge_id')
+                                      ->where('employe_id', $employeId)
+                                      ->orderBy('created_at', 'DESC')
+                                      ->limit(5)
+                                      ->findAll(),
             'soldes'     => $soldeModel->select('soldes.*, types_conge.libelle')
                                       ->join('types_conge', 'types_conge.id = soldes.type_conge_id')
                                       ->where('employe_id', $employeId)
@@ -131,5 +136,53 @@ class Employe extends BaseController
         $congeModel->update($id, ['statut' => 'annulee']);
 
         return redirect()->back()->with('success', 'Demande annulée.');
+    }
+
+    // Profil
+    public function profil()
+    {
+        $employeModel = new \App\Models\EmployeModel();
+        $employeId = session()->get('id');
+        $employe = $employeModel->find($employeId);
+
+        $depModel = new \App\Models\DepartementModel();
+        $data = [
+            'title'        => 'Mon Profil',
+            'employe'      => $employe,
+            'departements' => $depModel->findAll()
+        ];
+
+        return view('employe/profil', $data);
+    }
+
+    public function updateProfil()
+    {
+        $employeModel = new \App\Models\EmployeModel();
+        $employeId = session()->get('id');
+
+        $data = $this->request->getPost();
+
+        // Only allow updating certain fields
+        $allowed = ['nom', 'prenom'];
+        $updateData = [];
+        foreach ($allowed as $field) {
+            if (isset($data[$field])) {
+                $updateData[$field] = $data[$field];
+            }
+        }
+
+        if (!empty($data['password'])) {
+            $updateData['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+        }
+
+        if (!$employeModel->update($employeId, $updateData)) {
+            return redirect()->back()->withInput()->with('errors', $employeModel->errors());
+        }
+
+        // Update session
+        if (isset($updateData['nom'])) session()->set('nom', $updateData['nom']);
+        if (isset($updateData['prenom'])) session()->set('prenom', $updateData['prenom']);
+
+        return redirect()->back()->with('success', 'Profil mis à jour avec succès.');
     }
 }

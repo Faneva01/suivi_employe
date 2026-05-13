@@ -3,7 +3,21 @@
 <?= $this->section('content') ?>
 <div class="data-card">
     <div class="data-card-head">
-        <h3>Demandes de congés en attente</h3>
+        <h3>Demandes de congés</h3>
+        <form method="get" action="<?= base_url('rh/demandes') ?>" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <select name="statut" class="f-select" style="width:auto;display:inline-block;" onchange="this.form.submit()">
+                <option value="en_attente" <?= $filtreStatut === 'en_attente' ? 'selected' : '' ?>>En attente</option>
+                <option value="approuvee" <?= $filtreStatut === 'approuvee' ? 'selected' : '' ?>>Approuvées</option>
+                <option value="refusee" <?= $filtreStatut === 'refusee' ? 'selected' : '' ?>>Refusées</option>
+                <option value="all" <?= $filtreStatut === 'all' ? 'selected' : '' ?>>Toutes</option>
+            </select>
+            <select name="departement_id" class="f-select" style="width:auto;display:inline-block;" onchange="this.form.submit()">
+                <option value="">Tous les départements</option>
+                <?php foreach ($departements as $d): ?>
+                    <option value="<?= $d['id'] ?>" <?= $filtreDep == $d['id'] ? 'selected' : '' ?>><?= $d['nom'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </form>
     </div>
     <table class="tbl">
         <thead>
