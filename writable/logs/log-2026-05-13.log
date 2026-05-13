@@ -1455,3 +1455,254 @@ DEBUG - 2026-05-13 08:07:51 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-05-13 08:07:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-05-13 08:07:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-05-13 08:08:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:23:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:23:57 --> CSRF token verified.
+ERROR - 2026-05-13 08:23:57 --> Error connecting to the database: Error: Class "SQLite3" not found in /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/SQLite3/Connection.php:111
+Stack trace:
+#0 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/BaseConnection.php(555): CodeIgniter\Database\SQLite3\Connection->connect()
+#1 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/app/Controllers/Auth.php(23): CodeIgniter\BaseModel->first()
+#7 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/CodeIgniter.php(951): App\Controllers\Auth->attemptLogin()
+#8 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2026-05-13 08:23:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [SQLite3]: Class "SQLite3" not found
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 6 APPPATH/Controllers/Auth.php(23): CodeIgniter\BaseModel->first()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Auth->attemptLogin()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+DEBUG - 2026-05-13 08:24:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:24:34 --> CSRF token verified.
+ERROR - 2026-05-13 08:24:34 --> Error connecting to the database: Error: Class "SQLite3" not found in /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/SQLite3/Connection.php:111
+Stack trace:
+#0 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/BaseConnection.php(555): CodeIgniter\Database\SQLite3\Connection->connect()
+#1 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/app/Controllers/Auth.php(23): CodeIgniter\BaseModel->first()
+#7 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/CodeIgniter.php(951): App\Controllers\Auth->attemptLogin()
+#8 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2026-05-13 08:24:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [SQLite3]: Class "SQLite3" not found
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 6 APPPATH/Controllers/Auth.php(23): CodeIgniter\BaseModel->first()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Auth->attemptLogin()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+DEBUG - 2026-05-13 08:24:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:25:19 --> CSRF token verified.
+ERROR - 2026-05-13 08:25:19 --> Error connecting to the database: Error: Class "SQLite3" not found in /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/SQLite3/Connection.php:111
+Stack trace:
+#0 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/BaseConnection.php(555): CodeIgniter\Database\SQLite3\Connection->connect()
+#1 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/app/Controllers/Auth.php(23): CodeIgniter\BaseModel->first()
+#7 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/CodeIgniter.php(951): App\Controllers\Auth->attemptLogin()
+#8 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/faneva/L2/S4/SI/CODEIGNITER/exam/gestion_emp/suivii_employe/suivi_employe/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2026-05-13 08:25:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [SQLite3]: Class "SQLite3" not found
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 6 APPPATH/Controllers/Auth.php(23): CodeIgniter\BaseModel->first()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Auth->attemptLogin()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+DEBUG - 2026-05-13 08:25:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-13 08:27:40 --> UNIQUE constraint failed: employes.email
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 163.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(163): SQLite3->exec('INSERT INTO `employes` (`actif`, `date_embauche`, `departement_id`, `email`, `nom`, `password`, `prenom`, `role`)
+VALUES (1,\'2020-01-01\',3,\'admin@techmada.mg\',\'Admin\',\'$2y$10$p1hqqGq1qZ.t7ICOyOAPYe5/RY.GjOI0pN.eRp1K6y2S/5T1ZEdHm\',\'System\',\'admin\'), (1,\'2021-06-01\',2,\'rh@techmada.mg\',\'RH\',\'$2y$10$I/kxQ9dalh2HdX9.QB.1JeuGygJ63h3Iq/ooG4NLpvJybSMP0EKHC\',\'Responsable\',\'rh\'), (1,\'2022-03-15\',1,\'jean.dupont@techmada.mg\',\'Dupont\',\'$2y$10$fy4KIwDsV5FXQ7bgBDu9l.6HzxqL6BqWJ36NLZBW1G6C/C12W25fm\',\'Jean\',\'employe\'), (1,\'2023-01-10\',1,\'alice.martin@techmada.mg\',\'Martin\',\'$2y$10$yjX5XbZqy/Bj7wAK/BOK4eN.00cetQhCpthv/G5jJzxiaHM3w97Y6\',\'Alice\',\'employe\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\SQLite3\Connection->execute('INSERT INTO `employes` (`actif`, `date_embauche`, `departement_id`, `email`, `nom`, `password`, `prenom`, `role`)
+VALUES (1,\'2020-01-01\',3,\'admin@techmada.mg\',\'Admin\',\'$2y$10$p1hqqGq1qZ.t7ICOyOAPYe5/RY.GjOI0pN.eRp1K6y2S/5T1ZEdHm\',\'System\',\'admin\'), (1,\'2021-06-01\',2,\'rh@techmada.mg\',\'RH\',\'$2y$10$I/kxQ9dalh2HdX9.QB.1JeuGygJ63h3Iq/ooG4NLpvJybSMP0EKHC\',\'Responsable\',\'rh\'), (1,\'2022-03-15\',1,\'jean.dupont@techmada.mg\',\'Dupont\',\'$2y$10$fy4KIwDsV5FXQ7bgBDu9l.6HzxqL6BqWJ36NLZBW1G6C/C12W25fm\',\'Jean\',\'employe\'), (1,\'2023-01-10\',1,\'alice.martin@techmada.mg\',\'Martin\',\'$2y$10$yjX5XbZqy/Bj7wAK/BOK4eN.00cetQhCpthv/G5jJzxiaHM3w97Y6\',\'Alice\',\'employe\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `employes` (`actif`, `date_embauche`, `departement_id`, `email`, `nom`, `password`, `prenom`, `role`)
+VALUES (1,\'2020-01-01\',3,\'admin@techmada.mg\',\'Admin\',\'$2y$10$p1hqqGq1qZ.t7ICOyOAPYe5/RY.GjOI0pN.eRp1K6y2S/5T1ZEdHm\',\'System\',\'admin\'), (1,\'2021-06-01\',2,\'rh@techmada.mg\',\'RH\',\'$2y$10$I/kxQ9dalh2HdX9.QB.1JeuGygJ63h3Iq/ooG4NLpvJybSMP0EKHC\',\'Responsable\',\'rh\'), (1,\'2022-03-15\',1,\'jean.dupont@techmada.mg\',\'Dupont\',\'$2y$10$fy4KIwDsV5FXQ7bgBDu9l.6HzxqL6BqWJ36NLZBW1G6C/C12W25fm\',\'Jean\',\'employe\'), (1,\'2023-01-10\',1,\'alice.martin@techmada.mg\',\'Martin\',\'$2y$10$yjX5XbZqy/Bj7wAK/BOK4eN.00cetQhCpthv/G5jJzxiaHM3w97Y6\',\'Alice\',\'employe\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1841): CodeIgniter\Database\BaseConnection->query('INSERT INTO `employes` (`actif`, `date_embauche`, `departement_id`, `email`, `nom`, `password`, `prenom`, `role`)
+VALUES (1,\'2020-01-01\',3,\'admin@techmada.mg\',\'Admin\',\'$2y$10$p1hqqGq1qZ.t7ICOyOAPYe5/RY.GjOI0pN.eRp1K6y2S/5T1ZEdHm\',\'System\',\'admin\'), (1,\'2021-06-01\',2,\'rh@techmada.mg\',\'RH\',\'$2y$10$I/kxQ9dalh2HdX9.QB.1JeuGygJ63h3Iq/ooG4NLpvJybSMP0EKHC\',\'Responsable\',\'rh\'), (1,\'2022-03-15\',1,\'jean.dupont@techmada.mg\',\'Dupont\',\'$2y$10$fy4KIwDsV5FXQ7bgBDu9l.6HzxqL6BqWJ36NLZBW1G6C/C12W25fm\',\'Jean\',\'employe\'), (1,\'2023-01-10\',1,\'alice.martin@techmada.mg\',\'Martin\',\'$2y$10$yjX5XbZqy/Bj7wAK/BOK4eN.00cetQhCpthv/G5jJzxiaHM3w97Y6\',\'Alice\',\'employe\')', null, false)
+ 5 SYSTEMPATH/Database/BaseBuilder.php(2230): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+ 6 APPPATH/Database/Seeds/MainSeeder.php(91): CodeIgniter\Database\BaseBuilder->insertBatch([...])
+ 7 SYSTEMPATH/Database/Seeder.php(155): App\Database\Seeds\MainSeeder->run()
+ 8 SYSTEMPATH/Commands/Database/Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\MainSeeder')
+ 9 SYSTEMPATH/CLI/Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+10 SYSTEMPATH/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+11 SYSTEMPATH/Boot.php(442): CodeIgniter\CLI\Console->run()
+12 SYSTEMPATH/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+13 ROOTPATH/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+ERROR - 2026-05-13 08:28:22 --> UNIQUE constraint failed: employes.email
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 163.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(163): SQLite3->exec('INSERT INTO `employes` (`actif`, `date_embauche`, `departement_id`, `email`, `nom`, `password`, `prenom`, `role`)
+VALUES (1,\'2020-01-01\',3,\'admin@techmada.mg\',\'Admin\',\'$2y$10$.A9WCnWsmU6ka/1sjeReMOFG9aXHolj.sf8ywYXZkWZlxUBIRC5Te\',\'System\',\'admin\'), (1,\'2021-06-01\',2,\'rh@techmada.mg\',\'RH\',\'$2y$10$U1NioO7dVj1lP81IW95IreK65acn8cfs6aSRoApPBzfyKaCN23VaK\',\'Responsable\',\'rh\'), (1,\'2022-03-15\',1,\'jean.dupont@techmada.mg\',\'Dupont\',\'$2y$10$36mJiDrr8XUkdF.E3zSQpO8DXH/4j2gZGP66vZ9KRQW08is/B0DAe\',\'Jean\',\'employe\'), (1,\'2023-01-10\',1,\'alice.martin@techmada.mg\',\'Martin\',\'$2y$10$pCOHZVoMkjDkSIyOeNbOoe/n5xoJh.roT50/3MbdLzUAKfPuifFKa\',\'Alice\',\'employe\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\SQLite3\Connection->execute('INSERT INTO `employes` (`actif`, `date_embauche`, `departement_id`, `email`, `nom`, `password`, `prenom`, `role`)
+VALUES (1,\'2020-01-01\',3,\'admin@techmada.mg\',\'Admin\',\'$2y$10$.A9WCnWsmU6ka/1sjeReMOFG9aXHolj.sf8ywYXZkWZlxUBIRC5Te\',\'System\',\'admin\'), (1,\'2021-06-01\',2,\'rh@techmada.mg\',\'RH\',\'$2y$10$U1NioO7dVj1lP81IW95IreK65acn8cfs6aSRoApPBzfyKaCN23VaK\',\'Responsable\',\'rh\'), (1,\'2022-03-15\',1,\'jean.dupont@techmada.mg\',\'Dupont\',\'$2y$10$36mJiDrr8XUkdF.E3zSQpO8DXH/4j2gZGP66vZ9KRQW08is/B0DAe\',\'Jean\',\'employe\'), (1,\'2023-01-10\',1,\'alice.martin@techmada.mg\',\'Martin\',\'$2y$10$pCOHZVoMkjDkSIyOeNbOoe/n5xoJh.roT50/3MbdLzUAKfPuifFKa\',\'Alice\',\'employe\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `employes` (`actif`, `date_embauche`, `departement_id`, `email`, `nom`, `password`, `prenom`, `role`)
+VALUES (1,\'2020-01-01\',3,\'admin@techmada.mg\',\'Admin\',\'$2y$10$.A9WCnWsmU6ka/1sjeReMOFG9aXHolj.sf8ywYXZkWZlxUBIRC5Te\',\'System\',\'admin\'), (1,\'2021-06-01\',2,\'rh@techmada.mg\',\'RH\',\'$2y$10$U1NioO7dVj1lP81IW95IreK65acn8cfs6aSRoApPBzfyKaCN23VaK\',\'Responsable\',\'rh\'), (1,\'2022-03-15\',1,\'jean.dupont@techmada.mg\',\'Dupont\',\'$2y$10$36mJiDrr8XUkdF.E3zSQpO8DXH/4j2gZGP66vZ9KRQW08is/B0DAe\',\'Jean\',\'employe\'), (1,\'2023-01-10\',1,\'alice.martin@techmada.mg\',\'Martin\',\'$2y$10$pCOHZVoMkjDkSIyOeNbOoe/n5xoJh.roT50/3MbdLzUAKfPuifFKa\',\'Alice\',\'employe\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1841): CodeIgniter\Database\BaseConnection->query('INSERT INTO `employes` (`actif`, `date_embauche`, `departement_id`, `email`, `nom`, `password`, `prenom`, `role`)
+VALUES (1,\'2020-01-01\',3,\'admin@techmada.mg\',\'Admin\',\'$2y$10$.A9WCnWsmU6ka/1sjeReMOFG9aXHolj.sf8ywYXZkWZlxUBIRC5Te\',\'System\',\'admin\'), (1,\'2021-06-01\',2,\'rh@techmada.mg\',\'RH\',\'$2y$10$U1NioO7dVj1lP81IW95IreK65acn8cfs6aSRoApPBzfyKaCN23VaK\',\'Responsable\',\'rh\'), (1,\'2022-03-15\',1,\'jean.dupont@techmada.mg\',\'Dupont\',\'$2y$10$36mJiDrr8XUkdF.E3zSQpO8DXH/4j2gZGP66vZ9KRQW08is/B0DAe\',\'Jean\',\'employe\'), (1,\'2023-01-10\',1,\'alice.martin@techmada.mg\',\'Martin\',\'$2y$10$pCOHZVoMkjDkSIyOeNbOoe/n5xoJh.roT50/3MbdLzUAKfPuifFKa\',\'Alice\',\'employe\')', null, false)
+ 5 SYSTEMPATH/Database/BaseBuilder.php(2230): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+ 6 APPPATH/Database/Seeds/MainSeeder.php(91): CodeIgniter\Database\BaseBuilder->insertBatch([...])
+ 7 SYSTEMPATH/Database/Seeder.php(155): App\Database\Seeds\MainSeeder->run()
+ 8 SYSTEMPATH/Commands/Database/Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\MainSeeder')
+ 9 SYSTEMPATH/CLI/Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+10 SYSTEMPATH/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+11 SYSTEMPATH/Boot.php(442): CodeIgniter\CLI\Console->run()
+12 SYSTEMPATH/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+13 ROOTPATH/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+DEBUG - 2026-05-13 08:28:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:28:44 --> CSRF token verified.
+DEBUG - 2026-05-13 08:28:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:28:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:28:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:28:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:29:22 --> CSRF token verified.
+DEBUG - 2026-05-13 08:29:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:29:44 --> CSRF token verified.
+DEBUG - 2026-05-13 08:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:29:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:30:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:30:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:30:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:30:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:30:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:31:33 --> CSRF token verified.
+DEBUG - 2026-05-13 08:31:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:31:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:33:54 --> CSRF token verified.
+DEBUG - 2026-05-13 08:33:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:33:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:34:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:34:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:36:13 --> CSRF token verified.
+DEBUG - 2026-05-13 08:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:36:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:37:43 --> CSRF token verified.
+DEBUG - 2026-05-13 08:37:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:37:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:37:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:37:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:38:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:38:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:42:10 --> CSRF token verified.
+DEBUG - 2026-05-13 08:42:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:42:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:42:35 --> CSRF token verified.
+DEBUG - 2026-05-13 08:42:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:42:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:42:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:42:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:42:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:42:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:42:56 --> CSRF token verified.
+DEBUG - 2026-05-13 08:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:43:21 --> CSRF token verified.
+DEBUG - 2026-05-13 08:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:43:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:44:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:44:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:44:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:44:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:45:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:45:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:45:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:45:46 --> CSRF token verified.
+DEBUG - 2026-05-13 08:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:45:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:45:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 08:45:52 --> CSRF token verified.
+DEBUG - 2026-05-13 08:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:45:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:46:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:47:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:47:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 08:47:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
