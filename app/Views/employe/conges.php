@@ -8,8 +8,8 @@
             <form action="<?= base_url('employe/conges/soumettre') ?>" method="post">
                 <?= csrf_field() ?>
                 <div class="mb-3">
-                    <label class="form-label" style="font-size: .8rem; font-weight: 500;">Type de congé</label>
-                    <select name="type_conge_id" class="form-select" style="border-radius: 8px; border: 1.5px solid var(--border);" required>
+                    <label class="f-label">Type de congé</label>
+                    <select name="type_conge_id" class="f-select" required>
                         <?php foreach ($soldes as $s): ?>
                             <option value="<?= $s['type_conge_id'] ?>">
                                 <?= $s['libelle'] ?> (<?= $s['jours_attribues'] - $s['jours_pris'] ?> j dispo)
