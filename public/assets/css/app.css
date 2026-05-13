@@ -31,6 +31,8 @@
 body { font-family:'Manrope',sans-serif; background:var(--cream); color:var(--ink); margin:0; font-size:15px; }
 h1,h2,h3,.brand-name { font-family:'Playfair Display',serif; }
 
+.app-wrap { display: flex; min-height: 100vh; }
+
 /* Custom Select Styling */
 .f-select {
     display: block;
