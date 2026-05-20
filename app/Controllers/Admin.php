@@ -27,11 +27,56 @@ class Admin extends BaseController
                                   ->groupEnd()
                                   ->findAll();
 
+        // Statistiques pour les graphiques
+        // 1. Congés par mois (année en cours) - Somme des jours
+        $statsMois = $congeModel->select("strftime('%m', date_debut) as mois, SUM(nb_jours) as total")
+                                ->where("strftime('%Y', date_debut)", $currentYear)
+                                ->where('statut', 'approuvee')
+                                ->groupBy('mois')
+                                ->orderBy('mois', 'ASC')
+                                ->findAll();
+        
+        $dataMois = array_fill(1, 12, 0);
+        foreach ($statsMois as $s) {
+            $dataMois[(int)$s['mois']] = (int)$s['total'];
+        }
+
+        // 2. Congés par jour de la semaine (année en cours) - Ventilation réelle
+        $statsJoursRaw = $congeModel->where("strftime('%Y', date_debut)", $currentYear)
+                                    ->where('statut', 'approuvee')
+                                    ->findAll();
+        
+        $dataJours = array_fill(0, 7, 0); // 0=Dimanche, ..., 6=Samedi
+        
+        foreach ($statsJoursRaw as $conge) {
+            $start = new \DateTime($conge['date_debut']);
+            $end = new \DateTime($conge['date_fin']);
+            $end->modify('+1 day');
+            
+            $interval = new \DateInterval('P1D');
+            $period = new \DatePeriod($start, $interval, $end);
+            
+            foreach ($period as $date) {
+                // On ne compte que les jours de l'année en cours pour être cohérent
+                if ($date->format('Y') == $currentYear) {
+                    $dayOfWeek = (int)$date->format('w');
+                    $dataJours[$dayOfWeek]++;
+                }
+            }
+        }
+        
+        // Réorganiser pour commencer par Lundi (1) et finir par Dimanche (0)
+        $reorderedJours = [
+            $dataJours[1], $dataJours[2], $dataJours[3], $dataJours[4], $dataJours[5], $dataJours[6], $dataJours[0]
+        ];
+
         $data = [
             'title'         => 'Dashboard Admin',
             'totalEmployes' => $employeModel->countAll(),
             'demandesAttente' => $congeModel->where('statut', 'en_attente')->countAllResults(),
-            'absencesMois'  => $absencesMois
+            'absencesMois'  => $absencesMois,
+            'chartMois'     => array_values($dataMois),
+            'chartJours'    => $reorderedJours
         ];
 
         return view('admin/dashboard', $data);
