@@ -4,17 +4,11 @@ if (!function_exists('calculate_business_days')) {
     function calculate_business_days($startDate, $endDate) {
         $start = new DateTime($startDate);
         $end = new DateTime($endDate);
-        $end->modify('+1 day');
         
-        $interval = new DateInterval('P1D');
-        $periods = new DatePeriod($start, $interval, $end);
+        // On calcule la différence absolue
+        $diff = $start->diff($end);
         
-        $days = 0;
-        foreach ($periods as $period) {
-            if ($period->format('N') < 6) { // 1 (Monday) to 5 (Friday)
-                $days++;
-            }
-        }
-        return $days;
+        // +1 car on inclut le jour de début et de fin
+        return $diff->days + 1;
     }
 }

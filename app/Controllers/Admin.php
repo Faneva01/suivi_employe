@@ -28,8 +28,8 @@ class Admin extends BaseController
                                   ->findAll();
 
         // Statistiques pour les graphiques
-        // 1. Congés par mois (année en cours)
-        $statsMois = $congeModel->select("strftime('%m', date_debut) as mois, COUNT(*) as total")
+        // 1. Congés par mois (année en cours) - Somme des jours
+        $statsMois = $congeModel->select("strftime('%m', date_debut) as mois, SUM(nb_jours) as total")
                                 ->where("strftime('%Y', date_debut)", $currentYear)
                                 ->where('statut', 'approuvee')
                                 ->groupBy('mois')
@@ -41,8 +41,8 @@ class Admin extends BaseController
             $dataMois[(int)$s['mois']] = (int)$s['total'];
         }
 
-        // 2. Congés par jour de la semaine (année en cours)
-        $statsJours = $congeModel->select("strftime('%w', date_debut) as jour, COUNT(*) as total")
+        // 2. Congés par jour de la semaine (année en cours) - Somme des jours
+        $statsJours = $congeModel->select("strftime('%w', date_debut) as jour, SUM(nb_jours) as total")
                                  ->where("strftime('%Y', date_debut)", $currentYear)
                                  ->where('statut', 'approuvee')
                                  ->groupBy('jour')

@@ -84,7 +84,7 @@
         data: {
             labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'],
             datasets: [{
-                label: 'Nombre de congés',
+                label: 'Total jours de congé',
                 data: <?= json_encode($chartMois) ?>,
                 borderColor: '#4f46e5',
                 backgroundColor: 'rgba(79, 70, 229, 0.1)',
