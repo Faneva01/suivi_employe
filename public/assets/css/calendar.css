@@ -1,0 +1,133 @@
+.calendar-page-head {
+    margin-bottom: 1.25rem;
+}
+
+.calendar-card-subtitle {
+    margin: 0.25rem 0 0;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.calendar-help-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--info-br);
+    border-radius: 999px;
+    background: var(--info-bg);
+    color: var(--info);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.calendar-card-body {
+    padding: 1.25rem;
+}
+
+.chart-card-body {
+    padding: 1.25rem;
+}
+
+.calendar-feedback {
+    margin-bottom: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.calendar-feedback-success {
+    color: var(--success);
+    border: 1px solid var(--success-br);
+    background: var(--success-bg);
+}
+
+.calendar-feedback-error {
+    color: var(--danger);
+    border: 1px solid var(--danger-br);
+    background: var(--danger-bg);
+}
+
+.calendar-modal-note {
+    margin-bottom: 1rem;
+    padding: 0.8rem 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--cream);
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+#employe-calendar {
+    min-height: 720px;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 1rem;
+    gap: 0.75rem;
+}
+
+.fc .fc-toolbar-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.fc .fc-button {
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--ink);
+    box-shadow: none !important;
+    text-transform: capitalize;
+}
+
+.fc .fc-button:hover,
+.fc .fc-button:focus,
+.fc .fc-button:active {
+    border-color: var(--forest);
+    background: var(--mint);
+    color: var(--forest);
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+    border-color: var(--forest);
+    background: var(--forest);
+    color: var(--white);
+}
+
+.fc .fc-col-header-cell-cushion,
+.fc .fc-daygrid-day-number,
+.fc .fc-timegrid-axis-cushion,
+.fc .fc-timegrid-slot-label-cushion {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.fc .fc-day-today {
+    background: rgba(212, 237, 224, 0.45) !important;
+}
+
+.fc .fc-highlight {
+    background: rgba(45, 90, 61, 0.12);
+}
+
+.fc .fc-event {
+    border-radius: 8px;
+    padding: 0.2rem 0.35rem;
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+@media (max-width: 992px) {
+    #employe-calendar {
+        min-height: 620px;
+    }
+
+    .fc .fc-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
