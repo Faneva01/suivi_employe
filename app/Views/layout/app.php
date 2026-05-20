@@ -51,8 +51,8 @@
                         <div class="user-name"><?= session()->get('prenom') ?> <?= session()->get('nom') ?></div>
                         <div class="user-role"><?= session()->get('role') ?></div>
                     </div>
-                    <a href="<?= base_url('logout') ?>" style="margin-left:auto;color:rgba(255,255,255,.25);"><i class="bi bi-box-arrow-right"></i></a>
                 </div>
+                <a href="<?= base_url('logout') ?>" class="logout-btn"><i class="bi bi-box-arrow-right"></i> Déconnexion</a>
             </div>
         </aside>
 
