@@ -76,7 +76,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="<?= base_url('assets/vendor/chartjs/chart.umd.js') ?>"></script>
 <script>
     const ctxMois = document.getElementById('chartMois').getContext('2d');
     new Chart(ctxMois, {
