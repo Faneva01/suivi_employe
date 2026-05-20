@@ -1,0 +1,25 @@
+.gitignore
+SUJET.md
+10-SQLite Cheat Sheet.pdf
+sqlite.pdf
+template-conges-rh-ci4.html
+
+# Dossier Writable de CodeIgniter 4
+# On ignore tout le contenu sauf les fichiers de structure (.htaccess et index.html)
+# Cela permet au prof d'avoir les dossiers créés mais sans tes fichiers temporaires.
+writable/*
+!writable/.htaccess
+!writable/index.html
+!writable/cache/index.html
+!writable/debugbar/index.html
+!writable/logs/index.html
+!writable/session/index.html
+!writable/uploads/index.html
+
+# Base de données
+# On laisse la DB pour que le prof ait les données de test directement.
+# writable/*.db
+
+# Fichiers d'environnement (config locale et sensible)
+.env
+env
