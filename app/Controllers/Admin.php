@@ -122,6 +122,7 @@ class Admin extends BaseController
             'title'        => 'Gestion des Employés',
             'employes'     => $model->select('employes.*, departements.nom as dep_nom')
                                     ->join('departements', 'departements.id = employes.departement_id', 'left')
+                                    ->where('role !=', 'admin')
                                     ->findAll(),
             'departements' => $depModel->findAll()  // Needed by the inline form in index.php
         ];
