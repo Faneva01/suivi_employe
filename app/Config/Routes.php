@@ -20,6 +20,7 @@ $routes->group('employe', ['filter' => 'auth:employe'], function($routes) {
     $routes->get('conges/annuler/(:num)', 'Employe::annuler/$1');
     $routes->get('profil', 'Employe::profil');
     $routes->post('profil/update', 'Employe::updateProfil');
+    $routes->get('calendar', 'Employe::calendrier');
 });
 
 // RH routes

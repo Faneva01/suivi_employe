@@ -206,4 +206,8 @@ class Employe extends BaseController
 
         return redirect()->back()->with('success', 'Profil mis à jour avec succès.');
     }
+
+    public function calendrier(){
+        return view('employe/calendar');
+    }
 }

@@ -7,7 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/css/app.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/calendar.css') ?>" rel="stylesheet">
     <script src="<?= base_url('assets/js/app.js') ?>"></script>
 </head>
 
@@ -26,6 +28,7 @@
                 <?php if (session()->get('role') === 'employe'): ?>
                     <li><a href="<?= base_url('employe/conges') ?>" class="<?= url_is('employe/conges*') ? 'active' : '' ?>"><i class="bi bi-calendar3"></i> Mes demandes</a></li>
                     <li><a href="<?= base_url('employe/profil') ?>" class="<?= url_is('employe/profil*') ? 'active' : '' ?>"><i class="bi bi-person"></i> Mon profil</a></li>
+                    <li><a href="<?= base_url('employe/calendar') ?>" class="<?= url_is('employe/calendar*') ? 'active' : '' ?>"><i class="bi bi-calendar"></i> Calendrier</a></li>
                 <?php endif; ?>
 
                 <?php if (session()->get('role') === 'rh'): ?>
@@ -79,5 +82,6 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 </body>
 </html>

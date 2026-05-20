@@ -7,7 +7,6 @@
             <div class="f-card-body">
                 <h3 class="page-title" style="font-size:1.1rem;margin-bottom:.5rem;">Mon Profil</h3>
                 <p class="page-sub" style="margin-bottom:1.25rem;">Modifiez vos informations personnelles.</p>
-                
                 <form action="<?= base_url('employe/profil/update') ?>" method="post">
                     <?= csrf_field() ?>
                     <div class="row">
