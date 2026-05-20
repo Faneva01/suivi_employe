@@ -40,4 +40,14 @@ class CongeModel extends Model
                     ->orderBy('created_at', 'DESC')
                     ->findAll();
     }
+
+    public function getEmployeStatsParType($employeId)
+    {
+        return $this->select('conges.type_conge_id, types_conge.libelle, COUNT(conges.id) as total_demandes, COALESCE(SUM(conges.nb_jours), 0) as total_jours')
+                    ->join('types_conge', 'types_conge.id = conges.type_conge_id')
+                    ->where('conges.employe_id', $employeId)
+                    ->groupBy('conges.type_conge_id, types_conge.libelle')
+                    ->orderBy('types_conge.libelle', 'ASC')
+                    ->findAll();
+    }
 }

@@ -8,6 +8,7 @@
     <link href="<?= base_url('assets/vendor/bootstrap-icons/bootstrap-icons.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/vendor/fonts/fonts.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/app.css') ?>" rel="stylesheet">
+    <?= $this->renderSection('styles') ?>
     <script src="<?= base_url('assets/js/app.js') ?>"></script>
 </head>
 
@@ -25,6 +26,7 @@
                 
                 <?php if (session()->get('role') === 'employe'): ?>
                     <li><a href="<?= base_url('employe/conges') ?>" class="<?= url_is('employe/conges*') ? 'active' : '' ?>"><i class="bi bi-calendar3"></i> Mes demandes</a></li>
+                    <li><a href="<?= base_url('employe/calendar') ?>" class="<?= url_is('employe/calendar*') ? 'active' : '' ?>"><i class="bi bi-calendar-week"></i> Calendrier</a></li>
                     <li><a href="<?= base_url('employe/profil') ?>" class="<?= url_is('employe/profil*') ? 'active' : '' ?>"><i class="bi bi-person"></i> Mon profil</a></li>
                 <?php endif; ?>
 

@@ -16,7 +16,9 @@ $routes->get('/logout', 'Auth::logout');
 $routes->group('employe', ['filter' => 'auth:employe'], function($routes) {
     $routes->get('/', 'Employe::index');
     $routes->get('conges', 'Employe::conges');
+    $routes->get('calendar', 'Employe::calendar');
     $routes->post('conges/soumettre', 'Employe::soumettre');
+    $routes->post('api/conges', 'Employe::soumettreApi');
     $routes->get('conges/annuler/(:num)', 'Employe::annuler/$1');
     $routes->get('profil', 'Employe::profil');
     $routes->post('profil/update', 'Employe::updateProfil');
