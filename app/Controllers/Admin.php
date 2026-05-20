@@ -41,19 +41,30 @@ class Admin extends BaseController
             $dataMois[(int)$s['mois']] = (int)$s['total'];
         }
 
-        // 2. Congés par jour de la semaine (année en cours) - Somme des jours
-        $statsJours = $congeModel->select("strftime('%w', date_debut) as jour, SUM(nb_jours) as total")
-                                 ->where("strftime('%Y', date_debut)", $currentYear)
-                                 ->where('statut', 'approuvee')
-                                 ->groupBy('jour')
-                                 ->orderBy('jour', 'ASC')
-                                 ->findAll();
+        // 2. Congés par jour de la semaine (année en cours) - Ventilation réelle
+        $statsJoursRaw = $congeModel->where("strftime('%Y', date_debut)", $currentYear)
+                                    ->where('statut', 'approuvee')
+                                    ->findAll();
         
-        // 0=Dimanche, 1=Lundi, ..., 6=Samedi
-        $dataJours = array_fill(0, 7, 0);
-        foreach ($statsJours as $s) {
-            $dataJours[(int)$s['jour']] = (int)$s['total'];
+        $dataJours = array_fill(0, 7, 0); // 0=Dimanche, ..., 6=Samedi
+        
+        foreach ($statsJoursRaw as $conge) {
+            $start = new \DateTime($conge['date_debut']);
+            $end = new \DateTime($conge['date_fin']);
+            $end->modify('+1 day');
+            
+            $interval = new \DateInterval('P1D');
+            $period = new \DatePeriod($start, $interval, $end);
+            
+            foreach ($period as $date) {
+                // On ne compte que les jours de l'année en cours pour être cohérent
+                if ($date->format('Y') == $currentYear) {
+                    $dayOfWeek = (int)$date->format('w');
+                    $dataJours[$dayOfWeek]++;
+                }
+            }
         }
+        
         // Réorganiser pour commencer par Lundi (1) et finir par Dimanche (0)
         $reorderedJours = [
             $dataJours[1], $dataJours[2], $dataJours[3], $dataJours[4], $dataJours[5], $dataJours[6], $dataJours[0]
