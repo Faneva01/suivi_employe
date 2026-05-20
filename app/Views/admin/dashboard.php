@@ -16,6 +16,29 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-8 mb-4">
+        <div class="data-card">
+            <div class="data-card-head">
+                <h3>Congés par mois (<?= date('Y') ?>)</h3>
+            </div>
+            <div class="p-3">
+                <canvas id="chartMois" style="max-height: 250px;"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="data-card">
+            <div class="data-card-head">
+                <h3>Distribution par jour</h3>
+            </div>
+            <div class="p-3">
+                <canvas id="chartJours" style="max-height: 250px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="data-card">
     <div class="data-card-head">
         <h3>Absences du mois en cours</h3>
@@ -50,4 +73,76 @@
         </tbody>
     </table>
 </div>
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctxMois = document.getElementById('chartMois').getContext('2d');
+    new Chart(ctxMois, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'],
+            datasets: [{
+                label: 'Nombre de congés',
+                data: <?= json_encode($chartMois) ?>,
+                borderColor: '#4f46e5',
+                backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: { 
+                    beginAtZero: true, 
+                    ticks: { 
+                        stepSize: 1,
+                        font: { family: 'Manrope' }
+                    },
+                    grid: { color: 'rgba(0,0,0,0.05)' }
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: { font: { family: 'Manrope' } }
+                }
+            }
+        }
+    });
+
+    const ctxJours = document.getElementById('chartJours').getContext('2d');
+    new Chart(ctxJours, {
+        type: 'doughnut',
+        data: {
+            labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
+            datasets: [{
+                data: <?= json_encode($chartJours) ?>,
+                backgroundColor: [
+                    '#4f46e5', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#6b7280', '#ec4899'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '70%',
+            plugins: {
+                legend: { 
+                    position: 'bottom', 
+                    labels: { 
+                        boxWidth: 8, 
+                        usePointStyle: true,
+                        font: { size: 10, family: 'Manrope' } 
+                    } 
+                }
+            }
+        }
+    });
+</script>
 <?= $this->endSection() ?>
