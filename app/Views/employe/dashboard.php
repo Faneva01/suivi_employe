@@ -6,7 +6,7 @@
         <div class="col-md-4 mb-4">
             <div class="data-card text-center p-4">
                 <div style="font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 5px;"><?= $solde['libelle'] ?></div>
-                <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--forest); line-height: 1;"><?= $solde['jours_attribues'] - $solde['jours_pris'] ?> j</div>
+                <div style="font-size: 2.5rem; font-weight: 700; color: var(--forest); line-height: 1;"><?= $solde['jours_attribues'] - $solde['jours_pris'] ?> j</div>
                 <div style="font-size: .75rem; color: var(--muted); margin-top: 5px;">restants sur <?= $solde['jours_attribues'] ?></div>
             </div>
         </div>
