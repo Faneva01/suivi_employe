@@ -17,12 +17,12 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--ink);m
 .auth-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;background:var(--ink)}
 .auth-split{display:grid;grid-template-columns:1fr 420px;max-width:900px;width:100%;border-radius:16px;overflow:hidden;background:var(--white)}
 .auth-left{background:var(--forest);padding:3rem;display:flex;flex-direction:column;justify-content:space-between}
-.auth-left-brand{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);letter-spacing:-.5px;margin:0}
+.auth-left-brand{font-family:'Manrope',sans-serif;font-weight:700;font-size:1.6rem;color:var(--white);letter-spacing:-.5px;margin:0}
 .auth-left-brand span{display:block;font-size:.85rem;font-weight:300;font-family:'Manrope',sans-serif;color:rgba(255,255,255,.5);margin-top:4px;letter-spacing:0}
 .auth-left-text{color:rgba(255,255,255,.6);font-size:.875rem;line-height:1.7}
-.auth-left-text strong{color:var(--white);display:block;font-size:1.25rem;font-family:'Playfair Display',serif;margin-bottom:.5rem}
+.auth-left-text strong{color:var(--white);display:block;font-size:1.25rem;font-family:'Manrope',sans-serif;font-weight:700;margin-bottom:.5rem}
 .auth-right{padding:2.5rem}
-.auth-title{font-size:1.3rem;font-weight:700;margin:0 0 .25rem; font-family:'Playfair Display',serif;}
+.auth-title{font-size:1.3rem;font-weight:700;margin:0 0 .25rem; font-family:'Manrope',sans-serif;}
 .auth-sub{font-size:.85rem;color:var(--muted);margin:0 0 1.75rem}
 .f-label{font-size:.8rem;font-weight:500;color:var(--ink);margin-bottom:5px;display:block}
 .f-input{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;font-size:.875rem;background:var(--white);color:var(--ink);transition:border-color .15s,box-shadow .15s;box-sizing:border-box}
@@ -37,4 +37,4 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--ink);m
 .role-btn:hover{background:var(--mint);border-color:var(--leaf)}
 .role-btn i{color:var(--forest);font-size:1.1rem}
 .role-name{font-size:.8rem;font-weight:600}
-.role-cred{font-size:.72rem;color:var(--muted);font-family:'Courier New',monospace}
+.role-cred{font-size:.72rem;color:var(--muted);font-family:'Manrope',sans-serif;font-weight:500}

@@ -5,13 +5,13 @@
     <div class="col-md-6 mb-4">
         <div class="data-card p-4 text-center">
             <div style="font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em;">Employés inscrits</div>
-            <div style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--info); line-height: 1;"><?= $totalEmployes ?></div>
+            <div style="font-size: 3rem; font-weight: 700; color: var(--info); line-height: 1;"><?= $totalEmployes ?></div>
         </div>
     </div>
     <div class="col-md-6 mb-4">
         <div class="data-card p-4 text-center" style="background: var(--warn-bg); border-color: var(--warn-br);">
             <div style="font-size: .8rem; color: var(--warn); text-transform: uppercase; letter-spacing: .05em;">Demandes en attente</div>
-            <div style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--warn); line-height: 1;"><?= $demandesAttente ?></div>
+            <div style="font-size: 3rem; font-weight: 700; color: var(--warn); line-height: 1;"><?= $demandesAttente ?></div>
         </div>
     </div>
 </div>

@@ -29,7 +29,7 @@
 }
 
 body { font-family:'Manrope',sans-serif; background:var(--cream); color:var(--ink); margin:0; font-size:15px; }
-h1,h2,h3,.brand-name { font-family:'Playfair Display',serif; }
+h1,h2,h3,.brand-name { font-family:'Manrope',sans-serif; font-weight:700; }
 
 .app-wrap { display: flex; min-height: 100vh; }
 
@@ -101,7 +101,7 @@ h1,h2,h3,.brand-name { font-family:'Playfair Display',serif; }
 .sidebar-brand { padding:1.4rem 1.2rem 1rem; display:flex; align-items:center; gap:10px; border-bottom:1px solid rgba(255,255,255,.06); }
 .sidebar-logo-icon { width:34px; height:34px; background:var(--forest); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .sidebar-logo-icon i { color:var(--white); font-size:1.1rem; }
-.sidebar-brand-name { font-family:'Playfair Display',serif; font-size:1rem; color:var(--white); line-height:1.2; }
+.sidebar-brand-name { font-family:'Manrope',sans-serif; font-weight:700; font-size:1rem; color:var(--white); line-height:1.2; }
 .sidebar-brand-name span { display:block; font-size:.65rem; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,.35); }
 .sidebar-section { padding:.75rem 1.1rem .3rem; font-size:.62rem; font-weight:500; letter-spacing:1.4px; text-transform:uppercase; color:rgba(255,255,255,.25); margin-top:.25rem; }
 .sidebar-nav { list-style:none; padding:0 .75rem; margin:0; }
@@ -119,7 +119,7 @@ h1,h2,h3,.brand-name { font-family:'Playfair Display',serif; }
 /* Main content */
 .main { flex:1; min-width:0; display:flex; flex-direction:column; }
 .topbar { height:var(--topbar-h); background:var(--white); border-bottom:1px solid var(--border); display:flex; align-items:center; padding:0 1.75rem; gap:1rem; position:sticky; top:0; z-index:10; }
-.topbar-title { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:600; color:var(--ink); }
+.topbar-title { font-family:'Manrope',sans-serif; font-size:1.05rem; font-weight:700; color:var(--ink); }
 .content { padding:1.75rem; flex:1; }
 .data-card { background:var(--white); border:1.5px solid var(--border); border-radius:12px; margin-bottom:1.5rem; overflow:hidden; }
 .data-card-head { padding:1.1rem 1.4rem; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
@@ -174,21 +174,21 @@ h1,h2,h3,.brand-name { font-family:'Playfair Display',serif; }
 .f-modal-overlay.show { display:flex; }
 .f-modal { background:var(--white); border-radius:12px; width:100%; max-width:500px; margin:1rem; box-shadow:0 10px 30px rgba(0,0,0,.1); }
 .f-modal-head { padding:1.2rem 1.5rem; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
-.f-modal-head h5 { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; margin:0; }
+.f-modal-head h5 { font-family:'Manrope',sans-serif; font-size:1rem; font-weight:700; margin:0; }
 .f-modal-close { width:28px; height:28px; border:none; background:var(--cream); border-radius:6px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:1rem; }
 .f-modal-close:hover { background:var(--mint); color:var(--ink); }
 .f-modal-body { padding:1.5rem; }
 .f-modal-foot { padding:1rem 1.5rem; border-top:1px solid var(--border); display:flex; justify-content:flex-end; gap:8px; }
 
 /* Utilities */
-.page-title { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; margin:0 0 .25rem; }
+.page-title { font-family:'Manrope',sans-serif; font-size:1.3rem; font-weight:700; margin:0 0 .25rem; }
 .page-sub { font-size:.85rem; color:var(--muted); margin:0 0 1.5rem; }
 .td-muted { color:var(--muted); }
-.td-mono { font-family:'Courier New',monospace; }
+.td-mono { font-family:'Manrope',sans-serif; font-weight:500; }
 .type-badge { font-size:.72rem; font-weight:500; background:var(--mint); color:var(--forest); padding:3px 10px; border-radius:5px; }
 .stat-card { background:var(--white); border:1.5px solid var(--border); border-radius:12px; padding:1.5rem; text-align:center; }
 .stat-card-icon { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 0.75rem; font-size:1.3rem; color:var(--white); }
-.stat-card-value { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:700; line-height:1; margin-bottom:4px; }
+.stat-card-value { font-family:'Manrope',sans-serif; font-size:2.2rem; font-weight:700; line-height:1; margin-bottom:4px; }
 .stat-card-label { font-size:.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
 .w-100 { width:100%; }
 .text-center { text-align:center; }
